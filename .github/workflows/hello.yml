@@ -1,0 +1,32 @@
+#This is workflow name
+name: Hello
+
+#runs on a trigger automatically but if any html file got change only then it will execute
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - "**.html"
+
+#If you want to run the actions manaully
+#on:
+#  workflow_dispatch:
+
+#These are the jobs inside workflow
+jobs:
+
+  #This is the name of the job
+  greet:
+    #This is github runner, each jobs run on  a runner
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say Hello to user
+        run: echo "Hello $USER"
+  
+  #This is another job 
+  details:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Show version of Python and Docker
+        run: docker --version && python --version
