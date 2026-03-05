@@ -19,5 +19,5 @@ jobs:
     steps:
      - name: FoldStyle
        run: >
-        echo "This is fold style of multi string. " && \
+        echo "This is fold style of multi string. " &&
         echo "It's a second step of task 4"
