@@ -11,7 +11,7 @@ jobs:
        run: |
         sudo apt-get update
         sudo apt install nginx
-        systemctl status nginx
+        sudo systemctl status nginx
 
   task_4_Step_2:
     runs-on: ubuntu-latest
