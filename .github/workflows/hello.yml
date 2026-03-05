@@ -2,16 +2,16 @@
 name: Hello
 
 #runs on a trigger automatically but if any html file got change only then it will execute
-on:
-  push:
-    branches:
-      - main
-    paths:
-      - "**.html"
+#on:
+#  push:
+#    branches:
+#      - main
+#    paths:
+#      - "**.html"
 
 #If you want to run the actions manaully
-#on:
-#  workflow_dispatch:
+on:
+  workflow_dispatch:
 
 #These are the jobs inside workflow
 jobs:
