@@ -25,4 +25,4 @@ jobs:
         run: ls -la
 
       - name: Print runner operating system
-        run: echo "Operating system:" $RUNNER_O
+        run: cho "Operating system:" $RUNNER_OS
