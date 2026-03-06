@@ -10,7 +10,7 @@ jobs:
       - name: Print information about ubuntu
         run: |
           echo "OS Name"
-          uname -a
+          uname
           echo "Runner Hostname"
           hostname
           echo "Current User"
@@ -22,7 +22,7 @@ jobs:
       - name: Print information about Windows
         run: |
           echo "OS Name"
-          uname -a
+          uname
           echo "Runner Hostname"
           hostname
           echo "Current User"
@@ -35,7 +35,7 @@ jobs:
       - name: Print information about macos
         run: |
           echo "OS Name"
-          uname -a
+          uname
           echo "Runner Hostname"
           hostname
           echo "Current User"
