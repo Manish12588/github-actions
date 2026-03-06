@@ -22,7 +22,10 @@ jobs:
         run: echo "Branch Name:" ${{ github.ref_name }}
 
       - name: List the file in repo
-        run: ls -l
+        run: ls -la
+
+      - name: List the file in repo using tree command
+        run: tree
 
       - name: Print runner operating system
         run: echo "Operating system:" $RUNNER_OS
