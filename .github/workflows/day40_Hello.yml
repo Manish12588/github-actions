@@ -1,10 +1,11 @@
-name: Day 40 Challenge Task 2
+name: Challenge Task 4
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
 
-Jobs:
+jobs:
   greet:
     runs-on: ubuntu-latest
     steps:
