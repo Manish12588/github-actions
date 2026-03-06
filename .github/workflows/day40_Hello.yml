@@ -24,8 +24,5 @@ jobs:
       - name: List the file in repo
         run: ls -la
 
-      - name: List the file in repo using tree command
-        run: tree
-
       - name: Print runner operating system
-        run: echo "Operating system:" $RUNNER_OS
+        run: echo "Operating system:" $RUNNER_O
