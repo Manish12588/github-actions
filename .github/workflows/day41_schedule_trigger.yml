@@ -1,0 +1,12 @@
+name: Schedule Trigger
+
+on:
+  schedule:
+    - cron: '* * * * *'
+
+jobs:
+  information:
+    runs-on: ubutnu-latest
+    steps:
+      - name: print information
+        run: echo "Printing from Schedule Trigger github actions"
