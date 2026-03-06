@@ -15,3 +15,5 @@ jobs:
           python --version
           echo "Node version"
           node --version
+          echo "Git Version"
+          git --version
