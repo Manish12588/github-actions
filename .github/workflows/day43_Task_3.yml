@@ -1,0 +1,21 @@
+name: Day 43 Task-3 | Job Outputs
+
+on:
+  workflow_dispatch:
+
+jobs:
+  set_output:
+    #runs-on: ubuntu-latest
+    runs-on: self-hosted
+    steps:
+      - name: Setting today's date
+        run: echo "date=$(date)" >> $GITHUB_OUTPUT
+  
+  read_output:
+    #runs-on: ubuntu-latest
+    runs-on: self-hosted
+    steps:
+      - name: Reading output from first job
+        run: echo ""
+
+
