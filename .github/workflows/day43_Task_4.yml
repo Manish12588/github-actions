@@ -24,10 +24,12 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Failed step
-        run: echo "Failing this step to test run on failed step."
+        run: |
+          echo "Failing this step"
           exit 1
 
       - name: Run on Previous Step Failed
+        if: failure()
         run: echo "Steps executed because previous step got failed."
 
 
