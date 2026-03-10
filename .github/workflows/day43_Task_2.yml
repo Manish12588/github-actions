@@ -20,6 +20,6 @@ jobs:
                echo "Workflow level env: $APP_NAME"
                echo "Job level env: $ENVIRONMENT"
                echo "Step level env: $VERSION"
-               echo "Commit SHA: ${{github.sha}}"
-               echo "Github Actor: ${{github.actor}}"
+               echo Commit SHA: "${{github.sha}}"
+               echo Github Actor: "${{github.actor}}"
 
