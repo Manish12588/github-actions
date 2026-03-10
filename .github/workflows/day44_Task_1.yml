@@ -7,5 +7,13 @@ jobs:
     test-secret:
         runs-on: ubuntu-latest
         steps:
+            - name: Check if secret exist
+              run: |
+                if [ -n "${{secrets.MY_SECRET_MESSAGE}}" ]; then
+                echo "Secret exist and set"
+                else
+                echo "Secret not set"
+                fi
+                
             - name: print secret
               run: echo "Secret is:" ${{secrets.MY_SECRET_MESSAGE}}
