@@ -9,7 +9,8 @@ env:
 
 jobs:
     environment_variable:
-        runs-on: ubutnu-latest
+        #runs-on: ubutnu-latest
+        runs-on: self-hosted
         #Job level Environment variable
         env:
             ENVIRONMENT: stagging
