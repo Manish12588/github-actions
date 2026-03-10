@@ -7,11 +7,22 @@ jobs:
     upload-artifacts:
         runs-on: ubuntu-latest
         steps:
-            - name: Create a log file
+            - name: Create a simple text file
               run: |
                 mkdir -p log-directory
-                echo "INFO: Log created for Test" >> log-directory/log.txt
+                echo "This is simple text file" >> log-directory/sample.txt
 
+            - name: Create a log file
+              run: |
+                cat >> log-directory/log.txt << EOF
+                INFO: This is log file for test
+                INFO: Branch name - ${{github.ref_name}}
+                INFO: Triggered by - ${{github.actor}}
+                INFO: Commit SHA - ${{github.sha}}
+                INFO: Workflow - ${{github.workflow}}
+                INFO: Job status - SUCCESS
+                EOF
+              
             - name: upload artifects
               uses: actions/upload-artifact@v4
               with:
