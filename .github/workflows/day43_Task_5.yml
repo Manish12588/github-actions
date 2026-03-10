@@ -1,9 +1,10 @@
 name: Day 43 Task-5 | Putting it together
 
 on:
-  push:
-    branches: [main, feature]
-
+  #push:
+  #  branches: [main, feature]
+  workflow_dispatch:
+    
 jobs:
   lint-job:
     runs-on: self-hosted
