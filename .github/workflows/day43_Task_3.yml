@@ -16,9 +16,6 @@ jobs:
 
       - name: printing date in set_date job
         run: echo "Output from job-1 :" ${{ steps.get-date.outputs.date }}
-
-      - name: Printing github variable output
-        run: echo $GITHUB_OUTPUT
   
   #Reading output from Job 1 (set_date)
   print_date:
