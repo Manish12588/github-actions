@@ -4,18 +4,22 @@ on:
   workflow_dispatch:
 
 jobs:
-  set_output:
+  set_date:
     #runs-on: ubuntu-latest
     runs-on: self-hosted
+    outputs:
+      todayDate: ${{ steps.set-date.outputs.date }}
     steps:
       - name: Setting today's date
+        id: set-date
         run: echo "date=$(date)" >> $GITHUB_OUTPUT
   
-  read_output:
+  print_date:
     #runs-on: ubuntu-latest
     runs-on: self-hosted
+    needs: set_date
     steps:
-      - name: Reading output from first job
-        run: echo ""
+      - name: Print the current date
+        run: echo "Current Date:" ${{ needs.set_date.outputs.todayDate }}
 
 
