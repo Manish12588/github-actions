@@ -41,7 +41,14 @@ jobs:
       - name: Run only on push events not on pull request
         run: echo "on push events"
 
-      - name: Failed step, Continue on error
-        run: echo "Failing step"
-          exit 1
+  continue_on_error:
+    runs-on: self-hosted
+    steps:    
+      - name: Failed step
         continue-on-error: true
+        run: |
+          echo "Failing step..."
+          exit 1
+
+      - name: Continue on error step
+        run: echo "Steps executed because continue-on-error was true."
