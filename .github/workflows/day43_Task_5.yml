@@ -41,7 +41,7 @@ jobs:
       - name: Branch Name
         run: |
           echo "Branch Name:" ${{github.ref_name}}
-          if [${{github.ref_name}}=="main"]; then
+          if [ "${{github.ref_name}}" == "main" ]; then
             echo "This is MAIN Branch"
           else
             echo "This is FEATURE Branch"

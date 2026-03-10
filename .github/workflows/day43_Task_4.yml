@@ -1,8 +1,8 @@
 name: Day 43 Task-4 | Conditionals
 
 on:
-  push:
-    branches: [main]
+  #push:
+  #  branches: [main]
 
   pull_request:
     branches: [main]
