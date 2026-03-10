@@ -1,0 +1,36 @@
+name: Day 44 Task-4 | Download Artifacts Between Jobs
+
+on:
+    workflow_dispatch:
+        
+jobs:
+    upload-artifacts:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Create a log file
+              run: |
+                mkdir -p log-directory
+                echo "INFO: Log created for Test" >> log-directory/log.txt
+
+            - name: upload artifects
+              uses: actions/upload-artifact@v4
+              with:
+                name: my-log-file
+                path: log-directory/log.txt
+    
+    download-artifacts:
+      runs-on: ubuntu-latest
+      needs: upload-artifacts
+      steps:
+        - name: download artifects
+          uses: actions/download-artifact@v5
+          with:
+            name: my-log-file
+            path: downloaded-content
+       
+        - name: List Directory Structure
+          run: ls -R downloaded-content
+
+        - name: Print File content
+          run: cat downloaded-content/log.txt
+        
