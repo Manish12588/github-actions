@@ -1,4 +1,4 @@
-name: Multi-job workflow
+name: Day 43 Task-1 | Multi-job workflow
 
 on:
   workflow_dispatch:
