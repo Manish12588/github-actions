@@ -8,11 +8,14 @@ jobs:
     #runs-on: ubuntu-latest
     runs-on: self-hosted
     outputs:
-      todayDate: ${{ steps.set-date.outputs.date }}
+      todayDate: ${{ steps.get-date.outputs.date }}
     steps:
       - name: Setting today's date
         id: set-date
         run: echo "date=$(date)" >> $GITHUB_OUTPUT
+
+      - name: printing date in set_date job
+        run: echo "set_date job:" ${{ steps.get-date.outputs.date }}
   
   print_date:
     #runs-on: ubuntu-latest
