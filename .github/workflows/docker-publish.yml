@@ -4,8 +4,9 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    
+  pull_request: 
+    types: [opened,synchronize,reopened]
+        
 jobs:
     docker-build-and-push:
         runs-on: ubuntu-latest
@@ -27,12 +28,12 @@ jobs:
                 push: true
                 tags: |
                   ${{secrets.DOCKER_USERNAME}}/repo:latest
-                  ${{secrets.DOCKER_USERNAME}}/repo:${{github.sha}}
+                  ${{secrets.DOCKER_USERNAME}}/repo:${{github.sha}} 
             
             - name: Build only if branch is not main
               if: github.ref_name != 'main'
               uses: docker/build-push-action@v6
               with:
                 context: .  #Path of the docker file
-                push: true
+                push: false
                 tags: ${{ secrets.DOCKER_USERNAME }}/repo:pr-${{ github.sha }}
