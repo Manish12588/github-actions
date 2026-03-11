@@ -33,4 +33,4 @@ jobs:
               uses: docker/build-push-action@v6
               with:
                 context: .  #Path of the docker file
-                push: false
+                push: true
