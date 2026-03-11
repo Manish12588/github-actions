@@ -36,3 +36,4 @@ jobs:
               with:
                 context: .  #Path of the docker file
                 push: false
+                tags: ${{ secrets.DOCKER_USERNAME }}/repo:pr-${{ github.sha }}
