@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main
+  pull_request: 
+    types: [opened,synchronize,reopened]
         
 jobs:
     docker-build-and-push:
@@ -26,7 +28,7 @@ jobs:
                 push: true
                 tags: |
                   ${{secrets.DOCKER_USERNAME}}/repo:latest
-                  ${{secrets.DOCKER_USERNAME}}/repo:${{github.sha}}
+                  ${{secrets.DOCKER_USERNAME}}/repo:${{github.sha}} 
             
             - name: Build only if branch is not main
               if: github.ref_name != 'main'
