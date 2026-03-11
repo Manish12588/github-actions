@@ -50,7 +50,7 @@ top_cpu_processes() {
 }
 
 disk_usage_for_fail() {
-    echo "=============== Top 5 Disk Usage =================="
+    echo "=============== Adding to make pipeline fail =================="
     df -h | grep "/nonexistent_mount" | head -n 6  # grep returns exit 1 if no match
     echo
 }
