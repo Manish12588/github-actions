@@ -7,7 +7,7 @@ set -euo pipefail
 # Function to display hostname and OS information
 system_info() {
     echo "=============== Hostname & OS Info ================"
-    echo "HostName : $(hostnam)"         # Fetches the network name of the machine
+    echo "HostName : $(hostname)"         # Fetches the network name of the machine
     echo "Kernel   : $(uname -r)"         # Returns the Linux kernel release version
     echo "OS       : $(lsb_release -ds)"  # Returns the distribution description (e.g., Ubuntu 22.04)
     echo
@@ -49,6 +49,12 @@ top_cpu_processes() {
     echo
 }
 
+disk_usage_for_fail() {
+    echo "=============== Top 5 Disk Usage =================="
+    df -h | grep "/nonexistent_mount" | head -n 6  # grep returns exit 1 if no match
+    echo
+}
+
 # Main function: Orchestrates the execution flow
 main() {
     system_info
@@ -56,6 +62,7 @@ main() {
     disk_usage
     memory_usage
     top_cpu_processes
+    disk_usage_for_fail
 }
 
 # Execute the script
