@@ -11,15 +11,16 @@ on:
 jobs:
     pull-request-infomation:
         runs-on: ubuntu-latest
+        if: github.event.action == 'closed' && github.event.pull_request.merged == true
         steps:
             - name: Print Fired Event Type
-              run: ${{ github.event.action }}
+              run: echo "Event type:" ${{ github.event.action }}
         
             - name: Print Pull Request Title
-              run: ${{github.event.pull_request.title}}
+              run: echo "Pull Request Title:" ${{github.event.pull_request.title}}
 
             - name: Print Pull request Author
-              run: ${{github.event.pull_request.user.login}}
+              run: echo "Pull Request Author:" ${{github.event.pull_request.user.login}}
 
             - name: Print Source and Target Branch
               run: |
@@ -27,7 +28,6 @@ jobs:
                 echo "Target: " ${{github.base_ref}}
             
             - name: PR Merged step          # only runs when PR is merged
-              if: github.event.action == 'closed' && github.event.pull_request.merged == true
               run: |
                 echo "PR was MERGED into ${{ github.base_ref }}"
                 echo "Merged by : ${{ github.event.pull_request.merged_by.login }}"
