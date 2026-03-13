@@ -4,7 +4,10 @@ on:
     pull_request:
         branches:
           - main
-
+        types: 
+          - opened
+          - reopened
+        
 jobs:
     file-size-check:
         name: This jobs check the file size in pull requests
