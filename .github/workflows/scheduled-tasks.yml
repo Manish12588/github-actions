@@ -1,0 +1,20 @@
+name: Day-47 Task-3 | Scheduled Workflows (Cron Deep Dive)
+
+on:
+  schedule:
+    - cron: '30 2 * * 1'
+    - cron: '0 */6 * * *'
+
+  workflow_dispatch:
+
+jobs:
+    scheduler-info:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print scheduled trigger
+              run: echo "Schedule:" ${{github.event.schedule}}
+        
+            - name: Health check
+              run: |
+               curl -I www.google.com | awk 'NR == 1'
+               
