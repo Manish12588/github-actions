@@ -1,0 +1,28 @@
+name: Day-47 Task-1 | Pull Request Event Types
+
+on:
+    pull_request:
+        types: 
+          - opened
+          - synchronize
+          - reopened
+          - closed
+
+jobs:
+    pull-request-infomation:
+        runs-on: ubuntu-latest
+        if: github.event.pull_request.merged == true
+        steps:
+            - name: Print Fired Event Type
+              run: ${{ github.event.action }}
+        
+            - name: Print Pull Request Title
+              run: ${{github.event.pull_request.title}}
+
+            - name: Print Pull request Author
+              run: ${{github.event.pull_request.user.login}}
+
+            - name: Print Source and Target Branch
+              run: |
+                echo "Source: " ${{github.head_ref}}
+                echo "Target: " ${{github.base_ref}}
