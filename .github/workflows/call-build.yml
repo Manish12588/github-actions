@@ -13,3 +13,12 @@ jobs:
          environment: "production"
        secrets:
          docker_token: ${{ secrets.DOCKER_TOKEN }}
+
+     print:
+        runs-on: ubuntu-latest
+        needs: [build]
+        steps:
+            - name: print build version
+              run: |
+                echo "Build version: ${{ needs.build.outputs.build_version }}"
+

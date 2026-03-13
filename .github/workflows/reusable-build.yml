@@ -17,10 +17,17 @@ on:
         secrets:
             docker_token:
                 required: true
+        
+        outputs:
+            build_version:
+                value: ${{jobs.task-2.outputs.build-version}}  # Level 3 — expose to caller
+
                   
 jobs:
     task-2:
           runs-on: ubuntu-latest
+          outputs:
+            build-version: ${{steps.set-version.outputs.build_version}}  # Level 2 — expose to workflow
           steps:
             - name: Checkout code
               uses: actions/checkout@v4
@@ -36,3 +43,9 @@ jobs:
                     echo "Docker token is set: false"
                 fi
             
+            - name: Generate version                # Level 1 — generate in step
+              id: set-version                       # id required to reference output
+              run: |
+               BUILD_VERSION="v1.0-${GITHUB_SHA::7}"
+               echo "build_version=$BUILD_VERSION" >> $GITHUB_OUTPUT
+               echo "Generated build version: $BUILD_VERSION"
