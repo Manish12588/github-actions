@@ -1,10 +1,11 @@
 name: Trigger on pull request
 
 on:
-  pull_request:
-    branches:
-      - main
-
+  #pull_request:
+  #  branches:
+  #    - main
+    workflow_dispatch:
+      
 jobs:
   pullRequest:
     runs-on: ubuntu-latest
