@@ -2,7 +2,7 @@ name: Day-47 Task-5 | Deploy After test workflow
 
 on:
     workflow_run:
-        workflows: ["Run tests"]
+        workflows: ["Day-47 Task-5 | Chain Work flow Together (Tests)"]
         types: [completed]
 
 jobs:
