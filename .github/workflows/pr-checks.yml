@@ -7,6 +7,7 @@ on:
 
 jobs:
     file-size-check:
+        name: This jobs check the file size in pull requests
         runs-on: ubuntu-latest
         steps:
             - name: Checkout the code
