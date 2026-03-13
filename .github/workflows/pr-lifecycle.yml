@@ -1,12 +1,14 @@
 name: Day-47 Task-1 | Pull Request Event Types
 
 on:
-    pull_request:
-        types: 
-          - opened
-          - synchronize
-          - reopened
-          - closed
+  #  pull_request:
+  #      types: 
+  #        - opened
+  #        - synchronize
+  #        - reopened
+  #        - closed
+  workflow_dispatch:
+    
 
 jobs:
     pull-request-infomation:
