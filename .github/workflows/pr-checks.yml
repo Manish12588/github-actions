@@ -17,15 +17,6 @@ jobs:
               uses: actions/checkout@v4
               with:
                 fetch-depth: 0
-            
-            #- name: Fails if any file in the PR is larger than 1 MB
-            #  id: size_check
-            #  uses: pelotech/github-action-file-size-checker@v0.1.2
-            #  with:
-            #    max_file_size_kib: '1024'
-
-            #- name: Fetch Main Branch
-            #  run: git fetch origin main
 
             - name: Fails if any file in the PR is larger than 1 MB
               run: |
