@@ -17,27 +17,29 @@ jobs:
               uses: actions/checkout@v4
               with:
                 fetch-depth: 0
-
-            - name: Fetch Main Branch
-              run: git fetch origin main
-              
+            
             #- name: Fails if any file in the PR is larger than 1 MB
             #  id: size_check
             #  uses: pelotech/github-action-file-size-checker@v0.1.2
             #  with:
             #    max_file_size_kib: '1024'
 
+            #- name: Fetch Main Branch
+            #  run: git fetch origin main
+
             - name: Fails if any file in the PR is larger than 1 MB
               run: |
-               for file in $(git diff --name-only origin/main HEAD); do
+               BASE=${{github.event.pull_request.base.sha}}
+               HEAD=${{github.event.pull_request.head.sha}}
+               for file in $(git diff --name-only $BASE $HEAD); do
                   if [ -f "$file" ]; then
                     SIZE=$(stat -c%s "$file")
                     SIZE_KB=$((SIZE / 1024))
                     if [ $SIZE -gt 1048576 ]; then
-                      echo "❌ $file → ${SIZE_KB}KB exceeds 1MB"
+                      echo "❌ FAILED: $file is ${SIZE_KB}KB — exceeds 1MB limit"
                       exit 1
                     else
-                      echo "✅ $file → ${SIZE_KB}KB OK"
+                      echo "✅ OK: $file is ${SIZE_KB}KB"
                     fi
                   fi
                 done
