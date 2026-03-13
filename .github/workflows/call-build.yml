@@ -1,9 +1,10 @@
 name: Day-46 Task-3 | Create a Caller Workflow
 
 on:
-    push:
-        branches:
-          - main
+  workflow_dispatch:
+    #push:
+    #    branches:
+    #      - main
 
 jobs:
      build:
