@@ -1,9 +1,11 @@
 name: Day-47 Task-5 | Chain Work flow Together (Tests)
 
 on:
-    push:
-        branches:
-          - main
+    #push:
+    #    branches:
+    #     - main
+    workflow_dispatch:
+      
 
 jobs:
     print-git-info:
